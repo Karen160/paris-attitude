@@ -42,6 +42,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Bloquer l'accès à cette page si l'utilisateur n'est pas connecté.
 
+- Résolution: Problème résolu lors du changement de la condition d'accès à la page des favoris.
+
 ### Modal de connexion sur la page "Favorites"
 
 - Problème : Même connecté, cliquer sur "Favoris" affiche la modal de connexion.
