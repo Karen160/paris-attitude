@@ -1,9 +1,10 @@
 <template>
-  <q-chip v-for="(v, k) in savedSearch" :key="k" clickable @click="emit('search', v)">
+  <q-chip class="card-saved-search" v-for="(v, k) in savedSearch" :key="k" clickable @click="emit('search', v)">
     <p v-if="!v.borough && !v.min && !v.max && !v.bedrooms" class="q-mb-none">Search 1</p>
     <p v-else class="q-mb-none">
       {{ v.borough || '' }} {{ v.min || '' }} {{ v.max || '' }} {{ v.bedrooms || '' }}
     </p>
+    <q-btn label="x" rounded class="btn-delete" text-color="black" @click="emit('delete', v)" />
   </q-chip>
 </template>
 
@@ -11,7 +12,7 @@
 import { computed } from 'vue'
 import { useSearchStore } from 'stores/search-store.js'
 
-const emit = defineEmits(['search'])
+const emit = defineEmits(['search', 'delete'])
 
 const searchStore = useSearchStore()
 
