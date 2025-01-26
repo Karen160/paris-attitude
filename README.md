@@ -48,6 +48,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Supprimer l'ouverture de la modal si l'utilisateur est déjà connecté.
 
+- Résolution : J'ai changé la condition d'accès à la page des favoris, en affichant la modal seulement si l'utilisateur n'est pas connecté. 
+
 ### Filtres de loyer
 
 - Problème : Les filtres de loyer ne fonctionnent pas correctement.
