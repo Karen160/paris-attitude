@@ -18,3 +18,13 @@ const searchStore = useSearchStore()
 
 const savedSearch = computed(() => searchStore.savedSearch)
 </script>
+
+<style lang="scss" scoped>
+.card-saved-search {
+  padding-right: 0;
+  .btn-delete {
+    margin-left: 10px;
+    font-size: 10px;
+  }
+}
+</style>
