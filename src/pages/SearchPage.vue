@@ -44,7 +44,8 @@ const searchStore = useSearchStore()
 
 const accommodations = computed(() => searchStore.accommodations)
 
-const filteredAccommodations = ref([])
+// Je définis mes filtres par défaut en récupérant tous les hébergements sans filtre
+const filteredAccommodations = ref(accommodations.value)
 const form = ref({
   borough: null,
   category: null,
@@ -79,9 +80,13 @@ const resetMethod = () => {
 }
 
 onMounted(() => {
-  filteredAccommodations.value = accommodations.value.filter((accommodation) => {
-    return accommodation.borough === route.params.search
-  })
+  // Je mets à jour mon filtre, seulement si les paramètres sont défini dans l'URL
+  if(route.params.search) {
+    filteredAccommodations.value = accommodations.value.filter((accommodation) => {
+      return accommodation.borough === route.params.search
+    })
+  }
+
 })
 </script>
 
