@@ -16,6 +16,14 @@
         class="q-mr-md"
         @click="() => router.push({ name: 'favorites' })"
       />
+      <!-- Ajout d'un bouton pour accéder à la page de recherche -->
+      <q-btn
+        color="black"
+        label="Recherche"
+        size="md"
+        class="q-mr-md"
+        @click="() => router.push({ name: 'search' })"
+      />
       <q-btn
         v-if="!isAuthenticated"
         color="black"
