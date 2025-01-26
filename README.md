@@ -26,6 +26,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Corriger la logique d'authentification pour valider les identifiants corrects.
 
+- Résolution : Dans le store d'authentification, je vérifie bien que le nom et le mot de passe sont égales à ce qui est défini dans ma configuration.
+
 ### Connexion persistante
 
 - Problème : Après connexion, l'utilisateur est déconnecté en actualisant la page.
