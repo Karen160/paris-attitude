@@ -30,7 +30,7 @@
       class="absolute-top-right q-mr-lg"
       @click.stop="authenticateStore.removeFromFavorites(accommodation)"
     />
-    <img src="../../public/assets/background.webp" alt="accommodation.title" class="image-accommodation" />
+    <img src="../../src/assets/background.webp" alt="accommodation.title" class="image-accommodation" />
 
     <section class="q-px-md">
       <h1 class="text-h3 q-ma-none">

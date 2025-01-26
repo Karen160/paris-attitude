@@ -95,7 +95,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
-import { onMounted, ref, toRefs, computed, defineProps, defineEmits } from 'vue'
+import { onMounted, ref, toRefs, computed } from 'vue'
 import { useSearchStore } from 'stores/search-store.js'
 import { useAuthenticateStore } from 'stores/authenticate-store.js'
 
