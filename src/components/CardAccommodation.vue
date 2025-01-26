@@ -9,6 +9,7 @@
       class="absolute-top-right q-mr-sm"
       @click.stop="authenticateStore.addToFavorites(accommodation)"
     />
+    <!-- Envoie de l'objet accomodation complet (et pas seulement id) puisqu'il est déjà spécifié dans removeFromFavorites-->
     <q-btn
       v-if="isAuthenticated && alreadyInFavorites"
       flat
@@ -16,7 +17,7 @@
       dense
       label="Supprimer"
       class="absolute-top-right q-mr-sm"
-      @click.stop="authenticateStore.removeFromFavorites(accommodation?.id)"
+      @click.stop="authenticateStore.removeFromFavorites(accommodation)"
     />
     <img src="../../public/assets/background.webp" alt="accommodation.title" class="image-accommodation" />
   </q-card-section>
