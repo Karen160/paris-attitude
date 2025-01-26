@@ -66,6 +66,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Vérifier que la fonctionnalité est bien implémentée.
 
+- Résolution : J'ai modifié la condition d'enregistrement de la recherche dans le store, en vérifiant que la recherche est enregistrée uniquement si elle n'est pas déjà présente.
+
 ### Suppression de favoris
 
 - Problème : La suppression d'un favori ne fonctionne pas.
