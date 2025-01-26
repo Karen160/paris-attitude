@@ -8,7 +8,8 @@ Notify.setDefaults({
 
 export const useAuthenticateStore = defineStore('authenticate', {
   state: () => ({
-    user: null,
+    // Je récupère l'utilisateur si il est défini stocker dans le local storage
+    user: JSON.parse(localStorage.getItem('user')) || null,
     authModal: false,
     favorites: [],
   }),
@@ -22,6 +23,8 @@ export const useAuthenticateStore = defineStore('authenticate', {
       // Je vérifie si le nom de l'utilisateur et le mot de passe sont correct
       if (user.username === process.env.USERNAME_APP && user.password === process.env.PASSWORD) {
         this.user = user
+        // Je stocke le profil utilisateur dans le local storage
+        localStorage.setItem('user', JSON.stringify(user))
         Notify.create({
           color: 'positive',
           message: 'You are now logged in!',
@@ -37,6 +40,8 @@ export const useAuthenticateStore = defineStore('authenticate', {
     },
     async logoutUser() {
       this.user = null
+      // Je supprime le profil utilisateur dans le local storage
+      localStorage.removeItem('user')
       Notify.create({
         color: 'positive',
         message: 'You are now logged out!',

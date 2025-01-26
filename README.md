@@ -34,6 +34,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Assurer une persistance de la connexion après actualisation.
 
+- Résolution : Dans le store d'authentification, j'enregistre / supprime le profil utilisateur dans le local storage
+
 ### Accès à la page "Favorites" sans connexion
 
 - Problème : L'utilisateur peut accéder à la page des favoris via l'URL sans être connecté.
