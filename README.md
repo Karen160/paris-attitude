@@ -18,6 +18,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Lorsque aucun quartier n'est sélectionné, afficher l'ensemble des biens.
 
+- Résolution : J'ai configuré le résultat des filtres de la recherche par défaut en renvoyant tous les hébergements. Je mets à jour ces résultats seulement si les filtres sont bien définis.
+
 ### Connexion avec mot de passe
 
 - Problème : Impossible de se connecter avec un mot de passe correct.

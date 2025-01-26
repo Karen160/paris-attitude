@@ -45,7 +45,7 @@ const searchStore = useSearchStore()
 
 const accommodations = computed(() => searchStore.accommodations)
 
-// Je définis mes filtres par défaut en récupérant tous les hébergements sans filtre
+// Je définis le résultat de mes filtres en récupérant tous les hébergements sans appliquer de filtre
 const filteredAccommodations = ref(accommodations.value)
 const form = ref({
   borough: null,
