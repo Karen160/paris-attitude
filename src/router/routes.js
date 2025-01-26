@@ -31,9 +31,10 @@ const routes = [
         name: 'favorites',
         beforeEnter: (to, from, next) => {
           const { isAuthenticated, openAuthModal } = useAuthenticateStore()
-          if (!isAuthenticated) {
-            next()
-          } else {
+          // Si l'utilisateur est connecté, j'accède à la page
+          if (isAuthenticated) next()
+          // Sinon, je redirige vers la page d'accueil et j'ouvre ma modal de connexion
+          else {
             next({ name: 'home', params: { lang: to.params.lang } })
             openAuthModal()
           }
