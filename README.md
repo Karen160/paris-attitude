@@ -58,6 +58,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Corriger les filtres pour qu'ils filtrent les biens en fonction des critères de loyer sélectionnés.
 
+- Résolution : J'ai modifié les conditions de filtre concernant les prix dans le store de recherche, car ils étaient incorrect.
+
 ### Enregistrement de recherche
 
 - Problème : Rien ne se passe lorsqu'un utilisateur connecté clique sur "Enregistrer ma recherche".
