@@ -73,9 +73,10 @@ const sizeOfInput = ref(0)
 const borough = ref('')
 
 const search = () => {
+  // Redirige vers la route appropriée en fonction de la présence ou non des paramètres
   router.push({
-    name: 'search',
-    params: { search: borough.value },
+    name: borough.value ? 'search-param' : 'search',
+    params: borough.value ? { search: borough.value } : undefined,
   })
 }
 
@@ -95,7 +96,6 @@ useMeta({
   margin: 10px;
   border-radius: 10px;
   cursor: pointer;
-
   &:hover {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 1);
     transition: box-shadow 0.3s;
