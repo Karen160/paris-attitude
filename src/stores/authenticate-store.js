@@ -8,7 +8,7 @@ Notify.setDefaults({
 
 export const useAuthenticateStore = defineStore('authenticate', {
   state: () => ({
-    // Je récupère l'utilisateur si il est défini stocker dans le local storage
+    // Je récupère l'utilisateur s'il est défini dans le local storage
     user: JSON.parse(localStorage.getItem('user')) || null,
     authModal: false,
     favorites: [],
