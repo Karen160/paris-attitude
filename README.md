@@ -8,7 +8,9 @@
 
 - Attendu : Permettre l'accès à la page de recherche sans quartier.
 
-- Résolution : J'ai ajouté la page de recherche dans le router sans paramètre défini dans l'URL. De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton de redirection vers celle-ci dans le header.
+- Résolution :
+J'ai ajouté la page de recherche dans le router sans paramètre défini dans l'URL et configuré les redirections appropriées depuis la page d'accueil vers la page correspondante.
+De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton de redirection vers celle-ci dans le header.
 
 ### Affichage des biens dans la recherche
 

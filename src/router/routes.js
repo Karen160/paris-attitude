@@ -11,18 +11,18 @@ const routes = [
         meta: { title: 'Home' },
         name: 'home',
       },
-      {
-        path: 'search/:search',
-        component: () => import('pages/SearchPage.vue'),
-        meta: { title: 'Search' },
-        name: 'search',
-      },
       // Ajout d'une route pour accéder à la page de recherche sans paramètre de recherche
       {
         path: 'search',
         component: () => import('pages/SearchPage.vue'),
         meta: { title: 'Search' },
         name: 'search',
+      },
+      {
+        path: 'search/:search',
+        component: () => import('pages/SearchPage.vue'),
+        meta: { title: 'Search' },
+        name: 'search-param',
       },
       {
         path: 'favorites',
