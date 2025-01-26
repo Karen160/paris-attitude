@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed, onMounted, ref } from 'vue'
 import { useSearchStore } from 'stores/search-store.js'
 import CardAccommodation from 'components/CardAccommodation.vue'
@@ -39,12 +39,14 @@ import FiltersSearch from 'components/FiltersSearch.vue'
 import CardSavedSearch from 'components/CardSavedSearch.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const searchStore = useSearchStore()
 
 const accommodations = computed(() => searchStore.accommodations)
 
-const filteredAccommodations = ref([])
+// Je définis le résultat de mes filtres en récupérant tous les hébergements sans appliquer de filtre
+const filteredAccommodations = ref(accommodations.value)
 const form = ref({
   borough: null,
   category: null,
@@ -61,6 +63,12 @@ const filterMethod = () => {
     max: form.value.max ? parseInt(form.value.max) : null,
   }
   filteredAccommodations.value = searchStore.filteringAccommodation(form.value)
+
+  // Mise à jour de l'URL en fonction du quartier choisi
+  router.push({
+    name: form.value.borough ? 'search-param' : 'search',
+    params: form.value.borough ? { search: form.value.borough } : undefined,
+  })
 }
 
 const setFormWithSavedSearch = ($event) => {
@@ -79,9 +87,13 @@ const resetMethod = () => {
 }
 
 onMounted(() => {
-  filteredAccommodations.value = accommodations.value.filter((accommodation) => {
-    return accommodation.borough === route.params.search
-  })
+  // Je mets à jour mon filtre, seulement si les paramètres sont défini dans l'URL
+  if(route.params.search) {
+    filteredAccommodations.value = accommodations.value.filter((accommodation) => {
+      return accommodation.borough === route.params.search
+    })
+  }
+
 })
 </script>
 
