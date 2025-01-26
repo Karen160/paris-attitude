@@ -11,7 +11,8 @@ export const useAuthenticateStore = defineStore('authenticate', {
     // Je récupère l'utilisateur s'il est défini dans le local storage
     user: JSON.parse(localStorage.getItem('user')) || null,
     authModal: false,
-    favorites: [],
+    // Je récupère les favoris de l'utilisateur s'ils sont défini dans le local storage
+    favorites: JSON.parse(localStorage.getItem('favorites')) || [],
   }),
   getters: {
     isAuthenticated() {
@@ -61,6 +62,8 @@ export const useAuthenticateStore = defineStore('authenticate', {
         return false
       } else {
         this.favorites.push(favorite)
+        // Je stocke les favoris de l'utilisateur dans le local storage
+        localStorage.setItem('favorites', JSON.stringify(this.favorites))
         Notify.create({
           color: 'positive',
           message: 'Favorite added!',
@@ -69,6 +72,8 @@ export const useAuthenticateStore = defineStore('authenticate', {
     },
     removeFromFavorites(favorite) {
       this.favorites = this.favorites.filter((f) => f.id !== favorite.id)
+      // Je mets à jour les favoris dans le local storage
+      localStorage.setItem('favorites', JSON.stringify(this.favorites))
       Notify.create({
         color: 'positive',
         message: 'Favorite removed!',

@@ -74,6 +74,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Corriger la fonctionnalité de suppression des favoris.
 
+- Résolution : Dans removeFromFavorites, on récupérait l'ID à partir de l'objet complet des favoris, mais dans CardAccommodation, on envoyait seulement l'ID. J'ai donc envoyé l'objet complet dans CardAccommodation.
+
 ### Suppression des recherches enregistrées
 
 - Problème : Le bouton de suppression des recherches enregistrées est manquant.
