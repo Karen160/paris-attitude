@@ -76,6 +76,7 @@
           :style="`height: ${sizeOfInput}px`"
         />
       </div>
+      <!-- J'ajoute un bouton pour pouvoir supprimer toutes mes recherches sauvegarder en même temps -->
       <div v-if="isAuthenticated">
         <q-btn
           label="Supprimer toutes mes recherches"
@@ -84,6 +85,7 @@
           outlined
           @click="deleteAllSavedSearch"
           :style="`height: ${sizeOfInput}px`"
+          :disable="searchStore.savedSearch.length === 0"
         />
       </div>
     </div>
@@ -126,6 +128,7 @@ const save = () => {
   }
 }
 
+// Je supprime toutes mes recherches sauvegardées
 const deleteAllSavedSearch = () => {
   searchStore.clearAllSavedSearch()
 }

@@ -82,6 +82,8 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Ajouter un bouton pour permettre cette suppression et s'assurer que la méthode backend existante soit appelée correctement et qu'elle fonctionne bien.
 
+- Résolution : J'ai ajouté un bouton pour supprimer toutes les recherches sauvegardées en une seule fois, ainsi qu'un bouton sur chaque CardSavedSearch pour les supprimer individuellement.
+
 ### Titre de l’onglet sur la page de recherche
 
 - Problème : Le titre de l’onglet n’est pas présent sur la page de recherche.
