@@ -31,7 +31,7 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed, onMounted, ref } from 'vue'
 import { useSearchStore } from 'stores/search-store.js'
 import CardAccommodation from 'components/CardAccommodation.vue'
@@ -39,6 +39,7 @@ import FiltersSearch from 'components/FiltersSearch.vue'
 import CardSavedSearch from 'components/CardSavedSearch.vue'
 
 const route = useRoute()
+const router = useRouter()
 
 const searchStore = useSearchStore()
 
@@ -62,6 +63,12 @@ const filterMethod = () => {
     max: form.value.max ? parseInt(form.value.max) : null,
   }
   filteredAccommodations.value = searchStore.filteringAccommodation(form.value)
+
+  // Mise à jour de l'URL en fonction du quartier choisi
+  router.push({
+    name: form.value.borough ? 'search-param' : 'search',
+    params: form.value.borough ? { search: form.value.borough } : undefined,
+  })
 }
 
 const setFormWithSavedSearch = ($event) => {
