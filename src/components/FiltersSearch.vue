@@ -45,35 +45,47 @@
         style="width: 200px"
       />
     </div>
-    <div class="flex" style="gap: 10px">
-      <q-btn
-        label="Reset"
-        color="black"
-        outlined
-        @click="
-          () => {
-            emit('reset')
-            resetForm()
-          }
-        "
-        :style="`height: ${sizeOfInput}px`"
-      />
-      <q-btn
-        label="Filtrer"
-        color="black"
-        outlined
-        @click="emit('search')"
-        :style="`height: ${sizeOfInput}px`"
-        :disable="filtersIsEmpty"
-      />
-      <q-btn
-        label="Enregistrer la recherche"
-        color="yellow-tanoi"
-        text-color="black"
-        outlined
-        @click="save"
-        :style="`height: ${sizeOfInput}px`"
-      />
+    <div class="flex justify-between" style="width: 100%">
+      <div class="flex" style="gap: 10px">
+        <q-btn
+          label="Reset"
+          color="black"
+          outlined
+          @click="
+            () => {
+              emit('reset')
+              resetForm()
+            }
+          "
+          :style="`height: ${sizeOfInput}px`"
+        />
+        <q-btn
+          label="Filtrer"
+          color="black"
+          outlined
+          @click="emit('search')"
+          :style="`height: ${sizeOfInput}px`"
+          :disable="filtersIsEmpty"
+        />
+        <q-btn
+          label="Enregistrer la recherche"
+          color="yellow-tanoi"
+          text-color="black"
+          outlined
+          @click="save"
+          :style="`height: ${sizeOfInput}px`"
+        />
+      </div>
+      <div v-if="isAuthenticated">
+        <q-btn
+          label="Supprimer toutes mes recherches"
+          color="yellow-tanoi"
+          text-color="black"
+          outlined
+          @click="deleteAllSavedSearch"
+          :style="`height: ${sizeOfInput}px`"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -112,6 +124,10 @@ const save = () => {
   } else {
     authenticateStore.openAuthModal()
   }
+}
+
+const deleteAllSavedSearch = () => {
+  searchStore.clearAllSavedSearch()
 }
 
 const resetForm = () => {

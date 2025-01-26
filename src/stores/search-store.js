@@ -1355,8 +1355,13 @@ export const useSearchStore = defineStore('search', {
       // Si la recherche n'est pas déjà enregistré, je l'ajoute à mes recherches sauvegardées
       if (!this.savedSearch.find((item) => item === search)) this.savedSearch.push(search)
     },
+    // On supprime la recherche sélectionnée enregistrées
     clearSavedSearch(index) {
       this.savedSearch.splice(index, 1)
+    },
+    // On supprime toutes mes recherches enregistrées
+    clearAllSavedSearch() {
+      this.savedSearch.splice(0, this.savedSearch.length)
     },
   },
   persist: ['savedSearch'],
