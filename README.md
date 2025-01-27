@@ -89,3 +89,5 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 - Problème : Le titre de l’onglet n’est pas présent sur la page de recherche.
 
 - Attendu : Ajouter un titre pertinent au niveau de l’onglet pour améliorer l’expérience utilisateur.
+
+- Résolution : 
