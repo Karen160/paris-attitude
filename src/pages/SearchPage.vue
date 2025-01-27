@@ -40,6 +40,7 @@ import { useSearchStore } from 'stores/search-store.js'
 import CardAccommodation from 'components/CardAccommodation.vue'
 import FiltersSearch from 'components/FiltersSearch.vue'
 import CardSavedSearch from 'components/CardSavedSearch.vue'
+import { useMeta } from 'quasar'
 
 const route = useRoute()
 const router = useRouter()
@@ -102,6 +103,11 @@ onMounted(() => {
     })
   }
 })
+
+// Défini le titre de la page de recherche en fonction de la recherche de l'utilisateur
+useMeta(() => ({
+  title: `${route.params.search || 'Recherche'} - Résultat de recherche`
+}))
 </script>
 
 <style lang="scss" scoped>
