@@ -1352,8 +1352,12 @@ export const useSearchStore = defineStore('search', {
       return filtered
     },
     saveSearch(search) {
+      // Je crée une copie de ma recherche pour qu'elle ne se mette pas à jour directement
+      const searchCopy = JSON.parse(JSON.stringify(search))
       // Si la recherche n'est pas déjà enregistré, je l'ajoute à mes recherches sauvegardées
-      if (!this.savedSearch.find((item) => item === search)) this.savedSearch.push(search)
+      if (!this.savedSearch.find(item => JSON.stringify(item) === JSON.stringify(searchCopy))) {
+        this.savedSearch.push(searchCopy)
+      }
     },
     clearSavedSearch(index) {
       this.savedSearch.splice(index, 1)
