@@ -11,6 +11,9 @@
               setFormWithSavedSearch(v)
             }
           "
+          @delete="(v) => {
+              deleteSavedSearch(v)
+            }"
         />
       </div>
       <div class="col-1 flex justify-end">
@@ -86,6 +89,11 @@ const resetMethod = () => {
   filteredAccommodations.value = searchStore.filteringAccommodation(null, true)
 }
 
+// Suppression de la card sélectionnée
+const deleteSavedSearch = (index) => {
+  searchStore.clearSavedSearch(index)
+}
+
 onMounted(() => {
   // Je mets à jour mon filtre, seulement si les paramètres sont défini dans l'URL
   if(route.params.search) {
@@ -93,7 +101,6 @@ onMounted(() => {
       return accommodation.borough === route.params.search
     })
   }
-
 })
 </script>
 

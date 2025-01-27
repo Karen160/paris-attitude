@@ -1359,8 +1359,13 @@ export const useSearchStore = defineStore('search', {
         this.savedSearch.push(searchCopy)
       }
     },
+    // On supprime la recherche sélectionnée enregistrée
     clearSavedSearch(index) {
       this.savedSearch.splice(index, 1)
+    },
+    // On supprime toutes mes recherches enregistrées
+    clearAllSavedSearch() {
+      this.savedSearch.splice(0, this.savedSearch.length)
     },
   },
   persist: ['savedSearch'],

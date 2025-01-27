@@ -19,7 +19,7 @@
       class="absolute-top-right q-mr-sm"
       @click.stop="authenticateStore.removeFromFavorites(accommodation)"
     />
-    <img src="../../public/assets/background.webp" alt="accommodation.title" class="image-accommodation" />
+    <img src="../../src/assets/background.webp" alt="accommodation.title" class="image-accommodation" />
   </q-card-section>
   <q-card-section class="q-py-none">
     <h1 class="text-h5 q-ma-none">
@@ -44,7 +44,7 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useAuthenticateStore } from 'stores/authenticate-store.js'
 import { useI18n } from 'vue-i18n'
 

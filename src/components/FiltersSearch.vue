@@ -45,35 +45,49 @@
         style="width: 200px"
       />
     </div>
-    <div class="flex" style="gap: 10px">
-      <q-btn
-        label="Reset"
-        color="black"
-        outlined
-        @click="
-          () => {
-            emit('reset')
-            resetForm()
-          }
-        "
-        :style="`height: ${sizeOfInput}px`"
-      />
-      <q-btn
-        label="Filtrer"
-        color="black"
-        outlined
-        @click="emit('search')"
-        :style="`height: ${sizeOfInput}px`"
-        :disable="filtersIsEmpty"
-      />
-      <q-btn
-        label="Enregistrer la recherche"
-        color="yellow-tanoi"
-        text-color="black"
-        outlined
-        @click="save"
-        :style="`height: ${sizeOfInput}px`"
-      />
+    <div class="flex justify-between" style="width: 100%">
+      <div class="flex" style="gap: 10px">
+        <q-btn
+          label="Reset"
+          color="black"
+          outlined
+          @click="
+            () => {
+              emit('reset')
+              resetForm()
+            }
+          "
+          :style="`height: ${sizeOfInput}px`"
+        />
+        <q-btn
+          label="Filtrer"
+          color="black"
+          outlined
+          @click="emit('search')"
+          :style="`height: ${sizeOfInput}px`"
+          :disable="filtersIsEmpty"
+        />
+        <q-btn
+          label="Enregistrer la recherche"
+          color="yellow-tanoi"
+          text-color="black"
+          outlined
+          @click="save"
+          :style="`height: ${sizeOfInput}px`"
+        />
+      </div>
+      <!-- J'ajoute un bouton pour pouvoir supprimer toutes mes recherches sauvegarder en même temps -->
+      <div v-if="isAuthenticated">
+        <q-btn
+          label="Supprimer toutes mes recherches"
+          color="yellow-tanoi"
+          text-color="black"
+          outlined
+          @click="deleteAllSavedSearch"
+          :style="`height: ${sizeOfInput}px`"
+          :disable="searchStore.savedSearch.length === 0"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -81,7 +95,7 @@
 <script setup>
 import { useI18n } from 'vue-i18n'
 import { useRoute, useRouter } from 'vue-router'
-import { onMounted, ref, toRefs, computed, defineProps, defineEmits } from 'vue'
+import { onMounted, ref, toRefs, computed } from 'vue'
 import { useSearchStore } from 'stores/search-store.js'
 import { useAuthenticateStore } from 'stores/authenticate-store.js'
 
@@ -112,6 +126,11 @@ const save = () => {
   } else {
     authenticateStore.openAuthModal()
   }
+}
+
+// Je supprime toutes mes recherches sauvegardées
+const deleteAllSavedSearch = () => {
+  searchStore.clearAllSavedSearch()
 }
 
 const resetForm = () => {

@@ -52,7 +52,7 @@ import CardAccommodation from 'components/CardAccommodation.vue'
 import { useMeta } from 'quasar'
 
 const searchStore = useSearchStore()
-const image = '../public/assets/background.webp'
+const image = '../src/assets/background.webp'
 
 const { t } = useI18n()
 const router = useRouter()
