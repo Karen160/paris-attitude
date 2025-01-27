@@ -4,7 +4,8 @@
     <p v-else class="q-mb-none">
       {{ v.borough || '' }} {{ v.min || '' }} {{ v.max || '' }} {{ v.bedrooms || '' }}
     </p>
-    <q-btn label="x" rounded class="btn-delete" text-color="black" @click="emit('delete', v)" />
+    <!-- Ajout d'un bouton pour supprimer la card-->
+    <q-btn label="x" rounded class="btn-delete" text-color="black" @click="emit('delete', k)" />
   </q-chip>
 </template>
 

@@ -89,6 +89,7 @@ const resetMethod = () => {
   filteredAccommodations.value = searchStore.filteringAccommodation(null, true)
 }
 
+// Suppression de la card sélectionnée
 const deleteSavedSearch = (index) => {
   searchStore.clearSavedSearch(index)
 }
