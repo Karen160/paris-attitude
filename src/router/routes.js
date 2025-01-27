@@ -21,7 +21,7 @@ const routes = [
       {
         path: 'search/:search',
         component: () => import('pages/SearchPage.vue'),
-        meta: { title: 'Search' },
+        meta: { title: 'Search param' },
         name: 'search-param',
       },
       {

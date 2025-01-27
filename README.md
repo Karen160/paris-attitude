@@ -90,4 +90,4 @@ De plus, pour améliorer l'accessibilité de cette page, j'ai ajouté un bouton 
 
 - Attendu : Ajouter un titre pertinent au niveau de l’onglet pour améliorer l’expérience utilisateur.
 
-- Résolution : 
+- Résolution : J'ai ajouté un titre dynamique à l'onglet de la page de recherche, basé sur l'arrondissement sélectionné par l'utilisateur.
